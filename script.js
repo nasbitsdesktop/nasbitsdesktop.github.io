@@ -1,5 +1,4 @@
-const encodedApiKey = 'ZDJhZGY2ZTM0ZjNlMmJhM2Y0MTEzZGZlOTg4OTc1N2Y=';
-const apiKey = atob(encodedApiKey);
+const apiKey = d2adf6e34f3e2ba3f4113dfe9889757f;
 const city = 'Houston'; // Replace with your city name
 
 const weatherInfo = document.getElementById('weather-info');
