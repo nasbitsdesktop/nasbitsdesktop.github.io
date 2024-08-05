@@ -11,15 +11,6 @@ body {
     position: relative; /* Allow absolute positioning inside */
 }
 
-#nyan-cat {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    width: 100px; /* Adjust the size as needed */
-    height: auto;
-    background: url('https://i.imgur.com/mALGkXH.gif') no-repeat center center;
-    background-size: cover;
-}
 
 #weather-info {
     position: fixed;
