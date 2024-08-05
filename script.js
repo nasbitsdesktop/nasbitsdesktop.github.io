@@ -1,4 +1,5 @@
-const apiKey = 'd2adf6e34f3e2ba3f4113dfe9889757f'; // Replace with your OpenWeatherMap API key
+const encodedApiKey = 'ZDJhZGY2ZTM0ZjNlMmJhM2Y0MTEzZGZlOTg4OTc1N2Y=';
+const apiKey = atob(encodedApiKey);
 const city = 'Houston'; // Replace with your city name
 
 const weatherInfo = document.getElementById('weather-info');
@@ -35,6 +36,7 @@ async function fetchWeather() {
 function updateWeatherIcon(iconCode) {
     weatherIcon.style.backgroundImage = `url(https://openweathermap.org/img/wn/${iconCode}@2x.png)`;
 }
+
 function updateClock() {
     const options = {
         timeZone: 'America/Chicago',
@@ -53,7 +55,6 @@ function updateClock() {
 // Update the clock immediately and then every second
 updateClock();
 setInterval(updateClock, 1000);
-
 
 // Fetch weather data on page load
 fetchWeather();
