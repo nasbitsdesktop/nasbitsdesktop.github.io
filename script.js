@@ -1,5 +1,5 @@
 const apiKey = 'd2adf6e34f3e2ba3f4113dfe9889757f'; // Replace with your OpenWeatherMap API key
-const city = 'Houston'; // Replace with your city name
+const city = 'Friendswood'; // Replace with your city name
 
 const weatherInfo = document.getElementById('weather-info');
 const weatherIcon = document.getElementById('weather-icon');
