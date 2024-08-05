@@ -33,7 +33,7 @@ async function fetchWeather() {
 }
 
 function updateWeatherIcon(iconCode) {
-    weatherIcon.style.backgroundImage = `url(http://openweathermap.org/img/wn/${iconCode}@2x.png)`;
+    weatherIcon.style.backgroundImage = `url(https://openweathermap.org/img/wn/${iconCode}@2x.png)`;
 }
 function updateClock() {
     const options = {
