@@ -8,6 +8,17 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    position: relative; /* Allow absolute positioning inside */
+}
+
+#nyan-cat {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 100px; /* Adjust the size as needed */
+    height: auto;
+    background: url('https://i.imgur.com/5Jv8XcT.gif') no-repeat center center;
+    background-size: cover;
 }
 
 #weather-info {
@@ -49,4 +60,11 @@ body {
     font-size: 14px;
     color: #333;
     margin-top: 10px; /* Space between the location and clock */
+}
+
+#weather-widget-container {
+    position: fixed;
+    bottom: 10px; /* Position at the bottom */
+    left: 10px; /* Align with the left edge */
+    z-index: 10; /* Ensure it appears above other content */
 }
