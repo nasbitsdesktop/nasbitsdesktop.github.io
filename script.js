@@ -35,6 +35,25 @@ async function fetchWeather() {
 function updateWeatherIcon(iconCode) {
     weatherIcon.style.backgroundImage = `url(http://openweathermap.org/img/wn/${iconCode}@2x.png)`;
 }
+function updateClock() {
+    const options = {
+        timeZone: 'America/Chicago',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: false // Use 24-hour format
+    };
+    
+    const now = new Date();
+    const timeString = new Intl.DateTimeFormat('en-US', options).format(now);
+
+    document.getElementById('clock').textContent = timeString;
+}
+
+// Update the clock immediately and then every second
+updateClock();
+setInterval(updateClock, 1000);
+
 
 // Fetch weather data on page load
 fetchWeather();
