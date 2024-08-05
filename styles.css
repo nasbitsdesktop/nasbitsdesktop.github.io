@@ -1,0 +1,40 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url('https://i.imgur.com/FG4QUMd.jpeg') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#weather-info {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background: rgba(255, 255, 255, 0.8); /* Slightly transparent background for readability */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 200px; /* Fixed width for better alignment */
+}
+
+#weather-icon {
+    width: 50px;
+    height: 50px;
+    background-size: cover;
+    margin-bottom: 10px;
+}
+
+#temperature {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+#description {
+    font-size: 16px;
+    color: #555;
+}
