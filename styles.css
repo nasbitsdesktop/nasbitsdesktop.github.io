@@ -17,7 +17,7 @@ body {
     left: 10px;
     width: 100px; /* Adjust the size as needed */
     height: auto;
-    background: url('https://i.imgur.com/5Jv8XcT.gif') no-repeat center center;
+    background: url('https://i.imgur.com/mALGkXH.gif') no-repeat center center;
     background-size: cover;
 }
 
@@ -62,9 +62,4 @@ body {
     margin-top: 10px; /* Space between the location and clock */
 }
 
-#weather-widget-container {
-    position: fixed;
-    bottom: 10px; /* Position at the bottom */
-    left: 10px; /* Align with the left edge */
-    z-index: 10; /* Ensure it appears above other content */
-}
+
