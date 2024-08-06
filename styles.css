@@ -19,9 +19,10 @@ body {
     align-items: center;
     height: 100vh;
     position: relative; /* Allows absolute positioning inside */
-    animation: fadeIn 3s ease-in-out; /* Apply fade-in effect */
+    animation: fadeIn 3s ease-in-out; /* Apply fade-in effect to the body */
 }
 
+/* Ensure the weather info box also fades in */
 #weather-info {
     position: fixed;
     top: 10px;
@@ -32,6 +33,9 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Slightly darker shadow for better visibility */
     text-align: center;
     width: 200px; /* Fixed width for better alignment */
+    opacity: 0; /* Start with hidden visibility */
+    animation: fadeIn 3s ease-in-out; /* Apply fade-in effect to the weather info box */
+    animation-delay: 1s; /* Delay the weather info box fade-in to start after 1 second */
 }
 
 #weather-icon {
