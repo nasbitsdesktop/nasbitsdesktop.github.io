@@ -8,9 +8,8 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    position: relative; /* Allow absolute positioning inside */
+    position: relative; /* Allows absolute positioning inside */
 }
-
 
 #weather-info {
     position: fixed;
@@ -52,5 +51,3 @@ body {
     color: #333;
     margin-top: 10px; /* Space between the location and clock */
 }
-
-
