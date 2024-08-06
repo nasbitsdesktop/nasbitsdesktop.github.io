@@ -1,3 +1,13 @@
+/* Keyframes for fade-in effect */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -8,41 +18,48 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    position: relative; /* Allow absolute positioning inside */
+    position: relative; /* Allows absolute positioning inside */
+    animation: fadeIn 3s ease-in-out; /* Apply fade-in effect */
 }
 
 #weather-info {
     position: fixed;
     top: 10px;
     right: 10px;
-    background: rgba(255, 255, 255, 0.8); /* Slightly transparent background for readability */
+    background: rgba(0, 0, 0, 0.7); /* Darker and more translucent background */
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Slightly darker shadow for better visibility */
     text-align: center;
     width: 200px; /* Fixed width for better alignment */
 }
+
 #weather-icon {
     width: 50px;
     height: 50px;
     background-size: cover;
     margin-bottom: 10px;
 }
+
 #temperature {
     font-size: 24px;
     font-weight: bold;
+    color: #fff; /* White text for contrast */
 }
+
 #description {
     font-size: 16px;
-    color: #555;
+    color: #ddd; /* Lighter text for better readability */
 }
+
 #location {
     font-size: 14px;
-    color: #333;
+    color: #eee; /* Even lighter text for the location */
     margin-top: 10px; /* Space between the description and location */
 }
+
 #clock {
     font-size: 14px;
-    color: #333;
+    color: #eee; /* Matching color for consistency */
     margin-top: 10px; /* Space between the location and clock */
 }
