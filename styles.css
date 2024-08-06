@@ -32,7 +32,7 @@ body::before {
     height: 100%;
     background: url('https://i.imgur.com/FG4QUMd.jpeg') no-repeat center center fixed;
     background-size: cover;
-    opacity: 0; /* Start with hidden visibility */
+    opacity: 1; /* Ensure background is fully visible */
     animation: fadeIn 3s ease-in-out; /* Apply fade-in effect */
     z-index: -1; /* Place behind the content */
 }
