@@ -22,10 +22,10 @@ body {
     position: relative; /* Allows absolute positioning inside */
     overflow: hidden; /* Prevents scrollbars caused by pseudo-element */
     background-color: black; /* Ensure the body starts with black background */
-    animation: fadeIn 3s ease-in-out; /* Apply fade-in effect to the body */
+    animation: fadeIn 3s ease-in-out forwards; /* Apply fade-in effect to the body */
 }
 
-/* Pseudo-element for background fade-in */
+/* Pseudo-element for background image */
 body::before {
     content: '';
     position: absolute;
@@ -35,8 +35,7 @@ body::before {
     height: 100%;
     background: url('https://i.imgur.com/FG4QUMd.jpeg') no-repeat center center fixed;
     background-size: cover;
-    opacity: 1; /* Ensure background is fully visible */
-    animation: fadeIn 3s ease-in-out; /* Apply fade-in effect */
+    opacity: 1; /* Ensure background image is fully visible */
     z-index: -1; /* Place behind the content */
 }
 
@@ -57,32 +56,17 @@ body::before {
     z-index: 1; /* Ensure it’s above the background */
 }
 
-#weather-icon {
-    width: 50px;
-    height: 50px;
-    background-size: cover;
-    margin-bottom: 10px;
+/* Ensure the weather info box starts from transparent and transitions properly */
+@keyframes fadeInWeatherInfo {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
-#temperature {
-    font-size: 24px;
-    font-weight: bold;
-    color: #fff; /* White text for contrast */
-}
-
-#description {
-    font-size: 16px;
-    color: #ddd; /* Lighter text for better readability */
-}
-
-#location {
-    font-size: 14px;
-    color: #eee; /* Even lighter text for the location */
-    margin-top: 10px; /* Space between the description and location */
-}
-
-#clock {
-    font-size: 14px;
-    color: #eee; /* Matching color for consistency */
-    margin-top: 10px; /* Space between the location and clock */
+#weather-info {
+    animation: fadeInWeatherInfo 3s ease-in-out forwards; /* Apply fade-in effect to the weather info box */
+    animation-delay: 1s; /* Delay the weather info box fade-in to start after 1 second */
 }
