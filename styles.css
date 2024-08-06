@@ -9,89 +9,48 @@ body {
     align-items: center;
     height: 100vh;
     position: relative; /* Allow absolute positioning inside */
-    transition: background 0.3s; /* Smooth transition for background */
 }
+
 
 #weather-info {
     position: fixed;
     top: 10px;
     right: 10px;
-    background: rgba(255, 255, 255, 0.8); /* Default light translucent background */
+    background: rgba(255, 255, 255, 0.8); /* Slightly transparent background for readability */
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Default light shadow */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
     width: 200px; /* Fixed width for better alignment */
-    transition: background 0.3s, box-shadow 0.3s; /* Smooth transition for background and shadow */
 }
 
-/* Light mode text colors */
-#temperature, #description, #location, #clock {
-    color: #333; /* Dark text color for light mode */
-}
-
-/* Dark mode styles */
-body.dark-mode {
-    background: url('https://i.imgur.com/FG4QUMd.jpeg') no-repeat center center fixed;
+#weather-icon {
+    width: 50px;
+    height: 50px;
     background-size: cover;
+    margin-bottom: 10px;
 }
 
-body.dark-mode #weather-info {
-    background: rgba(0, 0, 0, 0.7); /* Dark translucent background */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Darker shadow */
+#temperature {
+    font-size: 24px;
+    font-weight: bold;
 }
 
-body.dark-mode #temperature, 
-body.dark-mode #description, 
-body.dark-mode #location, 
-body.dark-mode #clock {
-    color: #e0e0e0; /* Light text color for dark mode */
+#description {
+    font-size: 16px;
+    color: #555;
 }
 
-/* Toggle switch styles */
-.switch {
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
-    display: inline-block;
-    width: 60px;
-    height: 34px;
+#location {
+    font-size: 14px;
+    color: #333;
+    margin-top: 10px; /* Space between the description and location */
 }
 
-.switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
+#clock {
+    font-size: 14px;
+    color: #333;
+    margin-top: 10px; /* Space between the location and clock */
 }
 
-.slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #ccc;
-    transition: .4s;
-    border-radius: 34px;
-}
 
-.slider:before {
-    position: absolute;
-    content: "";
-    height: 26px;
-    width: 26px;
-    border-radius: 50%;
-    left: 4px;
-    bottom: 4px;
-    background-color: white;
-    transition: .4s;
-}
-
-input:checked + .slider {
-    background-color: #007BFF;
-}
-
-input:checked + .slider:before {
-    transform: translateX(26px);
-}
