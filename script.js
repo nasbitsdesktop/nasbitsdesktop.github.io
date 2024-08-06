@@ -5,11 +5,8 @@ const weatherInfo = document.getElementById('weather-info');
 const weatherIcon = document.getElementById('weather-icon');
 const temperature = document.getElementById('temperature');
 const description = document.getElementById('description');
-const themeToggle = document.getElementById('theme-toggle');
-const body = document.body;
-const clockElement = document.getElementById('clock');
 
-const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
+const apiUrl = https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial;
 
 async function fetchWeather() {
     try {
@@ -23,7 +20,7 @@ async function fetchWeather() {
             const temp = data.main.temp;
             const weatherDescription = weather.description;
 
-            temperature.textContent = `${Math.round(temp)}°F`;
+            temperature.textContent = ${Math.round(temp)}°F;
             description.textContent = weatherDescription;
 
             updateWeatherIcon(weather.icon);
@@ -36,7 +33,7 @@ async function fetchWeather() {
 }
 
 function updateWeatherIcon(iconCode) {
-    weatherIcon.style.backgroundImage = `url(https://openweathermap.org/img/wn/${iconCode}@2x.png)`;
+    weatherIcon.style.backgroundImage = url(https://openweathermap.org/img/wn/${iconCode}@2x.png);
 }
 
 function updateClock() {
@@ -47,11 +44,11 @@ function updateClock() {
         second: '2-digit',
         hour12: false // Use 24-hour format
     };
-
+    
     const now = new Date();
     const timeString = new Intl.DateTimeFormat('en-US', options).format(now);
 
-    clockElement.textContent = timeString;
+    document.getElementById('clock').textContent = timeString;
 }
 
 // Update the clock immediately and then every second
@@ -61,31 +58,3 @@ setInterval(updateClock, 1000);
 // Fetch weather data on page load
 fetchWeather();
 
-// Theme toggle functionality
-function applyTheme(isDarkMode) {
-    if (isDarkMode) {
-        body.classList.add('dark-mode');
-    } else {
-        body.classList.remove('dark-mode');
-    }
-}
-
-// Check for saved theme preference in localStorage
-if (localStorage.getItem('dark-mode') === 'enabled') {
-    themeToggle.checked = true;
-    applyTheme(true);
-} else {
-    themeToggle.checked = false;
-    applyTheme(false);
-}
-
-// Add event listener for the toggle switch
-themeToggle.addEventListener('change', function() {
-    if (this.checked) {
-        applyTheme(true);
-        localStorage.setItem('dark-mode', 'enabled');
-    } else {
-        applyTheme(false);
-        localStorage.setItem('dark-mode', 'disabled');
-    }
-});
