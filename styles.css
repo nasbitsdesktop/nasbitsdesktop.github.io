@@ -2,9 +2,11 @@
 @keyframes fadeIn {
     from {
         opacity: 0;
+        background-color: black; /* Start with black background */
     }
     to {
         opacity: 1;
+        background-color: transparent; /* End with transparent background */
     }
 }
 
@@ -19,6 +21,7 @@ body {
     height: 100vh;
     position: relative; /* Allows absolute positioning inside */
     overflow: hidden; /* Prevents scrollbars caused by pseudo-element */
+    background-color: black; /* Ensure the body starts with black background */
     animation: fadeIn 3s ease-in-out; /* Apply fade-in effect to the body */
 }
 
