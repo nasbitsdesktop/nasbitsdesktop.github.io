@@ -51,6 +51,7 @@ body::before {
     opacity: 0; /* Start with hidden visibility */
     animation: fadeIn 3s ease-in-out; /* Apply fade-in effect to the weather info box */
     animation-delay: 1s; /* Delay the weather info box fade-in to start after 1 second */
+    z-index: 1; /* Ensure it’s above the background */
 }
 
 #weather-icon {
