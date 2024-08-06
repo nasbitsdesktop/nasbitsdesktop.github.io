@@ -5,6 +5,9 @@ const weatherInfo = document.getElementById('weather-info');
 const weatherIcon = document.getElementById('weather-icon');
 const temperature = document.getElementById('temperature');
 const description = document.getElementById('description');
+const themeToggle = document.getElementById('theme-toggle');
+const body = document.body;
+const clockElement = document.getElementById('clock');
 
 const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
 
@@ -44,11 +47,11 @@ function updateClock() {
         second: '2-digit',
         hour12: false // Use 24-hour format
     };
-    
+
     const now = new Date();
     const timeString = new Intl.DateTimeFormat('en-US', options).format(now);
 
-    document.getElementById('clock').textContent = timeString;
+    clockElement.textContent = timeString;
 }
 
 // Update the clock immediately and then every second
@@ -57,3 +60,32 @@ setInterval(updateClock, 1000);
 
 // Fetch weather data on page load
 fetchWeather();
+
+// Theme toggle functionality
+function applyTheme(isDarkMode) {
+    if (isDarkMode) {
+        body.classList.add('dark-mode');
+    } else {
+        body.classList.remove('dark-mode');
+    }
+}
+
+// Check for saved theme preference in localStorage
+if (localStorage.getItem('dark-mode') === 'enabled') {
+    themeToggle.checked = true;
+    applyTheme(true);
+} else {
+    themeToggle.checked = false;
+    applyTheme(false);
+}
+
+// Add event listener for the toggle switch
+themeToggle.addEventListener('change', function() {
+    if (this.checked) {
+        applyTheme(true);
+        localStorage.setItem('dark-mode', 'enabled');
+    } else {
+        applyTheme(false);
+        localStorage.setItem('dark-mode', 'disabled');
+    }
+});
