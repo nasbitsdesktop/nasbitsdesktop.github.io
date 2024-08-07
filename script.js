@@ -6,7 +6,7 @@ const weatherIcon = document.getElementById('weather-icon');
 const temperature = document.getElementById('temperature');
 const description = document.getElementById('description');
 
-const apiUrl = https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial;
+const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
 
 async function fetchWeather() {
     try {
@@ -17,7 +17,7 @@ async function fetchWeather() {
             const weather = data.weather[0];
             const temp = data.main.temp;
             const weatherDescription = weather.description;
-            temperature.textContent = ${Math.round(temp)}°F;
+            temperature.textContent = `${Math.round(temp)}°F`;
             description.textContent = weatherDescription;
             updateWeatherIcon(weather.icon);
         } else {
@@ -27,9 +27,11 @@ async function fetchWeather() {
         console.error('Error fetching weather data:', error);
     }
 }
+
 function updateWeatherIcon(iconCode) {
-    weatherIcon.style.backgroundImage = url(https://openweathermap.org/img/wn/${iconCode}@2x.png);
+    weatherIcon.style.backgroundImage = `url(https://openweathermap.org/img/wn/${iconCode}@2x.png)`;
 }
+
 function updateClock() {
     const options = {
         timeZone: 'America/Chicago',
@@ -43,8 +45,12 @@ function updateClock() {
     const timeString = new Intl.DateTimeFormat('en-US', options).format(now);
     document.getElementById('clock').textContent = timeString;
 }
+
 // Update the clock immediately and then every second
 updateClock();
 setInterval(updateClock, 1000);
+
 // Fetch weather data on page load
-fetchWeather();
+document.addEventListener('DOMContentLoaded', () => {
+    fetchWeather();
+});
