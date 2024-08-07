@@ -133,6 +133,7 @@ button:hover {
 .tile img {
     width: 40px; /* Adjust size of the logos */
     height: 40px;
+    object-fit: contain; /* Ensure logos fit inside the tile */
 }
 
 .tile:hover {
