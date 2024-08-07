@@ -106,4 +106,49 @@ button {
 button:hover {
     background-color: #777; /* Darker background on hover */
 }
+#social-media-tiles,
+#streaming-tiles {
+    position: fixed;
+    bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Space between tiles */
+    z-index: 1; /* Ensure they appear above the background */
+}
+
+#social-media-tiles {
+    right: 20px;
+}
+
+#streaming-tiles {
+    left: 20px;
+}
+
+.tile {
+    display: block;
+    width: 120px;
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    transition: opacity 0.3s;
+}
+
+.facebook { background-color: #3b5998; }
+.twitter { background-color: #1da1f2; }
+.instagram { background-color: #e4405f; }
+.linkedin { background-color: #0077b5; }
+.youtube { background-color: #ff0000; }
+
+.netflix { background-color: #e50914; }
+.hulu { background-color: #3dbb3d; }
+.prime-video { background-color: #00a8e1; }
+.disney-plus { background-color: #113ccf; }
+.plex { background-color: #e5a00d; }
+
+.tile:hover {
+    opacity: 0.8;
+}
 
