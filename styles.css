@@ -109,46 +109,33 @@ button:hover {
 #social-media-tiles,
 #streaming-tiles {
     position: fixed;
-    bottom: 20px;
+    bottom: 20%;
+    left: 50%;
+    transform: translateX(-50%);
     display: flex;
-    flex-direction: column;
-    gap: 10px; /* Space between tiles */
+    gap: 15px; /* Space between tiles */
     z-index: 1; /* Ensure they appear above the background */
 }
 
-#social-media-tiles {
-    right: 20px;
-}
-
-#streaming-tiles {
-    left: 20px;
-}
-
 .tile {
-    display: block;
-    width: 120px;
-    text-align: center;
-    padding: 10px;
-    border-radius: 5px;
-    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    background-color: rgba(255, 255, 255, 0.7); /* White with transparency */
+    border-radius: 10px;
     text-decoration: none;
-    font-size: 14px;
-    transition: opacity 0.3s;
+    transition: opacity 0.3s, transform 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.facebook { background-color: #3b5998; }
-.twitter { background-color: #1da1f2; }
-.instagram { background-color: #e4405f; }
-.linkedin { background-color: #0077b5; }
-.youtube { background-color: #ff0000; }
-
-.netflix { background-color: #e50914; }
-.hulu { background-color: #3dbb3d; }
-.prime-video { background-color: #00a8e1; }
-.disney-plus { background-color: #113ccf; }
-.plex { background-color: #e5a00d; }
+.tile img {
+    width: 40px; /* Adjust size of the logos */
+    height: 40px;
+}
 
 .tile:hover {
-    opacity: 0.8;
+    opacity: 0.9;
+    transform: scale(1.1);
 }
-
