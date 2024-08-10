@@ -58,13 +58,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
 async function getHeadlines() {
     try {
-        const response = await fetch(`https://serpapi.com/search.json?engine=google_news&q=headlines&api_key=${serpApiKey}`);
-        const data = await response.json();
-        const headlines = data.news_results.map(news => `<li><a href="${news.link}" target="_blank">${news.title}</a></li>`).join('');
-        document.getElementById('headline-list').innerHTML = headlines;
+        const response = await fetch(`https://serpapi.com/search.json?engine=google_news&q=headlines&api_key=${serpApiKey}`, { mode: 'no-cors' });
+        // Without access to the response body, you won't be able to parse it as JSON
+        console.log(response); // But you can inspect the response object
     } catch (error) {
         console.error('Error fetching headlines:', error);
     }
 }
+
 
 getHeadlines();
