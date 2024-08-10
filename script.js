@@ -80,7 +80,10 @@ async function getHeadlines() {
         if (data.results) {
             const headlines = data.results.map(article => `
                 <li>
-                    <a href="${article.link}" target="_blank">${article.title}</a>
+                    <a href="${article.link}" target="_blank">
+                        <img src="${article.image_url || 'default-image.jpg'}" alt="${article.title}" />
+                        <span>${article.title}</span>
+                    </a>
                 </li>
             `).join('');
             document.getElementById('headline-list').innerHTML = headlines;
