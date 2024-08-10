@@ -58,17 +58,26 @@ document.addEventListener('DOMContentLoaded', () => {
 async function getHeadlines() {
     try {
         const response = await fetch(`https://newsapi.org/v2/top-headlines?country=us&apiKey=${newsApiKey}`);
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
         const data = await response.json();
-        const headlines = data.articles.map(article => 
-            `<li><a href="${article.url}" target="_blank">${article.title}</a></li>`
-        ).join('');
-        document.getElementById('headline-list').innerHTML = headlines;
+
+        if (data.articles) {
+            const headlines = data.articles.map(article => 
+                `<li><a href="${article.url}" target="_blank">${article.title}</a></li>`
+            ).join('');
+            document.getElementById('headline-list').innerHTML = headlines;
+        } else {
+            document.getElementById('headline-list').innerHTML = '<li>No headlines found</li>';
+        }
     } catch (error) {
         console.error('Error fetching headlines:', error);
+        document.getElementById('headline-list').innerHTML = '<li>Failed to load headlines</li>';
     }
 }
 
-getHeadlines();
-
-
-getHeadlines();
+// Fetch headlines when the DOM is fully loaded
+document.addEventListener('DOMContentLoaded', getHeadlines);
