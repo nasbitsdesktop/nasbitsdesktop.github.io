@@ -65,50 +65,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
 async function getHeadlines() {
     function _0x18ab(_0x5e4f4a,_0x1e67b0){const _0x2bbde4=_0x2bbd();return _0x18ab=function(_0x18abfb,_0x5c6118){_0x18abfb=_0x18abfb-0x14c;let _0x3ea68f=_0x2bbde4[_0x18abfb];return _0x3ea68f;},_0x18ab(_0x5e4f4a,_0x1e67b0);}const _0x2e15dc=_0x18ab;(function(_0x6c3a53,_0x59ab91){const _0x5eb093=_0x18ab,_0x30005f=_0x6c3a53();while(!![]){try{const _0x56741d=parseInt(_0x5eb093(0x152))/0x1+-parseInt(_0x5eb093(0x153))/0x2*(parseInt(_0x5eb093(0x154))/0x3)+parseInt(_0x5eb093(0x150))/0x4+-parseInt(_0x5eb093(0x14f))/0x5+-parseInt(_0x5eb093(0x14d))/0x6+parseInt(_0x5eb093(0x14e))/0x7+parseInt(_0x5eb093(0x151))/0x8;if(_0x56741d===_0x59ab91)break;else _0x30005f['push'](_0x30005f['shift']());}catch(_0x3ba473){_0x30005f['push'](_0x30005f['shift']());}}}(_0x2bbd,0x6737f));const apiKey=_0x2e15dc(0x14c);function _0x2bbd(){const _0x4c2d60=['671324XorwZd','5509344neUrMN','807792PRkVqs','56558XmNiwl','39tzihSp','pub_505080c28a00e6c478ce7a392e72eb1474b73','1147590UCELjr','14784DlvVai','3423640GDSAoz'];_0x2bbd=function(){return _0x4c2d60;};return _0x2bbd();}
+    const apiUrl = `https://newsdata.io/api/1/news?apikey=${apiKey}&country=us`;
+
     try {
-        const response = await fetch('https://newsdata.io/api/1/news?apikey=${apiKey}&language=en');
+        const response = await fetch(apiUrl);
+        
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
         }
+
         const data = await response.json();
+        console.log('Headlines Data:', data);
 
-        const headlinesContainer = document.getElementById('headline-list');
-        headlinesContainer.innerHTML = ''; // Clear existing content
-
-        // Filter for English articles and create scrolling elements
-        data.results.filter(article => article.language === 'english').forEach(article => {
-            if (article.image_url) {
-                const articleElement = document.createElement('div');
-                articleElement.className = 'headline-item';
-                
-                articleElement.innerHTML = `
-                    <a href="${article.link}" target="_blank">
-                        <img src="${article.image_url}" alt="${article.title}">
-                        <p>${article.title}</p>
-                    </a>
-                `;
-                headlinesContainer.appendChild(articleElement);
-            }
-        });
-
-        // Start scrolling effect
-        startScrolling();
-
+        if (data.results) {
+            const headlines = data.results.map(article => `
+                <li>
+                    <a href="${article.link}" target="_blank">${article.title}</a>
+                </li>
+            `).join('');
+            document.getElementById('headline-list').innerHTML = headlines;
+        } else {
+            console.error('No articles found in the response');
+        }
     } catch (error) {
         console.error('Error fetching headlines:', error);
+        document.getElementById('headline-list').innerHTML = '<li>Error fetching headlines.</li>';
     }
 }
-
-function startScrolling() {
-    const headlines = document.querySelector('.headlines-box');
-    let scrollPosition = 0;
-    setInterval(() => {
-        scrollPosition += 1;
-        headlines.scrollLeft = scrollPosition;
-        if (scrollPosition >= headlines.scrollWidth - headlines.clientWidth) {
-            scrollPosition = 0;
-        }
-    }, 30);
-}
-
-getHeadlines();
