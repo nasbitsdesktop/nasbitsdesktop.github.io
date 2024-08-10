@@ -140,40 +140,45 @@ button:hover {
     opacity: 0.9;
     transform: scale(1.1);
 }
-/* Headlines Box Styles */
 .headlines-box {
     position: absolute;
-    top: 20px;
-    left: 20px;
-    background: rgba(0, 0, 0, 0.7);
-    color: white;
-    border-radius: 10px;
-    padding: 10px;
+    top: 10px;
+    left: 10px;
     width: 300px; /* Adjust width as needed */
+    height: 500px; /* Adjust height as needed */
+    overflow-y: auto; /* Enable vertical scrolling */
+    background-color: rgba(0, 0, 0, 0.5); /* Transparent black background */
+    border-radius: 15px; /* Rounded corners */
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
 .headlines-box h2 {
-    margin: 0;
-    font-size: 18px;
-    border-bottom: 1px solid #fff;
-    padding-bottom: 5px;
+    color: white;
+    margin: 0 0 10px;
 }
 
 .headlines-box ul {
-    list-style-type: none;
+    list-style: none;
     padding: 0;
     margin: 0;
 }
 
 .headlines-box li {
     margin-bottom: 10px;
+    display: flex;
+    align-items: center;
 }
 
-.headlines-box a {
-    color: #fff;
-    text-decoration: none;
+.headlines-box img {
+    width: 80px; /* Adjust width as needed */
+    height: 60px; /* Adjust height as needed */
+    object-fit: cover;
+    margin-right: 10px;
+    border-radius: 5px;
 }
 
-.headlines-box a:hover {
-    text-decoration: underline;
+.headlines-box span {
+    color: white;
+    font-size: 14px; /* Adjust font size as needed */
 }
