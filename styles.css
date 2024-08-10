@@ -140,3 +140,38 @@ button:hover {
     opacity: 0.9;
     transform: scale(1.1);
 }
+.headlines-box {
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 20px;
+    border-radius: 15px;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    max-width: 300px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.headlines-box h2 {
+    margin-top: 0;
+}
+
+.headlines-box ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.headlines-box li {
+    margin-bottom: 10px;
+}
+
+.headlines-box a {
+    color: #1e90ff;
+    text-decoration: none;
+}
+
+.headlines-box a:hover {
+    text-decoration: underline;
+}
