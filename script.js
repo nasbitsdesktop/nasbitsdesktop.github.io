@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 async function getHeadlines() {
     (function(_0x4caa0,_0x16eb45){const _0x294973=_0x16e0,_0x32c0bf=_0x4caa0();while(!![]){try{const _0x34c367=parseInt(_0x294973(0x110))/0x1+parseInt(_0x294973(0x112))/0x2*(-parseInt(_0x294973(0x113))/0x3)+parseInt(_0x294973(0x10b))/0x4*(parseInt(_0x294973(0x111))/0x5)+parseInt(_0x294973(0x10a))/0x6+-parseInt(_0x294973(0x10d))/0x7+parseInt(_0x294973(0x10c))/0x8*(-parseInt(_0x294973(0x10e))/0x9)+parseInt(_0x294973(0x10f))/0xa;if(_0x34c367===_0x16eb45)break;else _0x32c0bf['push'](_0x32c0bf['shift']());}catch(_0x222421){_0x32c0bf['push'](_0x32c0bf['shift']());}}}(_0x5387,0x2d22b));function _0x16e0(_0x2ca2f5,_0x43ee5d){const _0x538737=_0x5387();return _0x16e0=function(_0x16e0f6,_0x2b221c){_0x16e0f6=_0x16e0f6-0x10a;let _0x1973b6=_0x538737[_0x16e0f6];return _0x1973b6;},_0x16e0(_0x2ca2f5,_0x43ee5d);}function _0x5387(){const _0x4e2016=['186330QvfTLD','264185lTMvQx','520IsEfOZ','381hHVauB','327660XkpjPu','12TeRVlp','1523832WEsrqh','2340632jYxbzP','9zRGEix','3432990fpvRuO'];_0x5387=function(){return _0x4e2016;};return _0x5387();}const apiKey='8c6257ab8b7b497cba570c4c08d0edb1';
-    const apiUrl = `https://newsapi.org/v2/top-headlines?country=us&apiKey=${apiKey}`;
+    const apiUrl = `http://newsapi.org/v2/top-headlines?country=us&apiKey=${apiKey}`;
 
     try {
         const response = await fetch(apiUrl);
