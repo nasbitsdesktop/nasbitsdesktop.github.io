@@ -141,44 +141,35 @@ button:hover {
     transform: scale(1.1);
 }
 .headlines-box {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    width: 300px; /* Adjust width as needed */
-    height: 500px; /* Adjust height as needed */
-    overflow-y: auto; /* Enable vertical scrolling */
-    background-color: rgba(0, 0, 0, 0.5); /* Transparent black background */
-    border-radius: 15px; /* Rounded corners */
-    padding: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 200px; /* Adjust as needed */
+    border: 1px solid #ccc;
 }
 
-.headlines-box h2 {
-    color: white;
-    margin: 0 0 10px;
-}
-
-.headlines-box ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.headlines-box li {
-    margin-bottom: 10px;
+.headline-list {
     display: flex;
-    align-items: center;
+    flex-direction: row;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
-.headlines-box img {
-    width: 80px; /* Adjust width as needed */
-    height: 60px; /* Adjust height as needed */
+.headline-item {
+    display: inline-block;
+    margin-right: 20px; /* Adjust spacing between items */
+    text-align: center;
+}
+
+.headline-item img {
+    width: 150px; /* Adjust image size */
+    height: 100px; /* Adjust image size */
     object-fit: cover;
-    margin-right: 10px;
-    border-radius: 5px;
 }
 
-.headlines-box span {
-    color: white;
-    font-size: 14px; /* Adjust font size as needed */
+.headline-item p {
+    margin-top: 5px;
+    font-size: 14px;
+    color: #333;
 }
+
