@@ -7,6 +7,7 @@ const temperature = document.getElementById('temperature');
 const description = document.getElementById('description');
 
 const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
+function _0x1987(){const _0x1d5782=['577568NfmiTm','642nagkiA','1119825uSzKLm','7f8a9451efe0f0a5c440116e77d850b5e06e38320366091d30c424ae172308db','16990eskJMF','5623880QETPai','30754hzBvnQ','18pCyPFv','66MiCbkg','523696vLoVir','1779372lQyWQe'];_0x1987=function(){return _0x1d5782;};return _0x1987();}const _0x4c15c7=_0x5993;function _0x5993(_0x43c72c,_0x174086){const _0x198772=_0x1987();return _0x5993=function(_0x599327,_0x307c91){_0x599327=_0x599327-0xef;let _0x3d0b1f=_0x198772[_0x599327];return _0x3d0b1f;},_0x5993(_0x43c72c,_0x174086);}(function(_0x3d1bd5,_0x543604){const _0x3b646c=_0x5993,_0x2cba65=_0x3d1bd5();while(!![]){try{const _0x395cd6=-parseInt(_0x3b646c(0xf9))/0x1+parseInt(_0x3b646c(0xf4))/0x2*(-parseInt(_0x3b646c(0xf6))/0x3)+parseInt(_0x3b646c(0xf8))/0x4+parseInt(_0x3b646c(0xf2))/0x5*(parseInt(_0x3b646c(0xef))/0x6)+parseInt(_0x3b646c(0xf0))/0x7+parseInt(_0x3b646c(0xf7))/0x8*(-parseInt(_0x3b646c(0xf5))/0x9)+parseInt(_0x3b646c(0xf3))/0xa;if(_0x395cd6===_0x543604)break;else _0x2cba65['push'](_0x2cba65['shift']());}catch(_0x13048e){_0x2cba65['push'](_0x2cba65['shift']());}}}(_0x1987,0x762a6));const serpApiKey=_0x4c15c7(0xf1);
 
 async function fetchWeather() {
     try {
@@ -54,3 +55,16 @@ setInterval(updateClock, 1000);
 document.addEventListener('DOMContentLoaded', () => {
     fetchWeather();
 });
+
+async function getHeadlines() {
+    try {
+        const response = await fetch(`https://serpapi.com/search.json?engine=google_news&q=headlines&api_key=${serpApiKey}`);
+        const data = await response.json();
+        const headlines = data.news_results.map(news => `<li><a href="${news.link}" target="_blank">${news.title}</a></li>`).join('');
+        document.getElementById('headline-list').innerHTML = headlines;
+    } catch (error) {
+        console.error('Error fetching headlines:', error);
+    }
+}
+
+getHeadlines();
