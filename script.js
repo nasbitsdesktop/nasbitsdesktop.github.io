@@ -56,29 +56,35 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 async function getHeadlines() {
-    try {
-        function _0x3201(_0x45cb61,_0x535f76){const _0x26f505=_0x26f5();return _0x3201=function(_0x3201f5,_0x3fadba){_0x3201f5=_0x3201f5-0x181;let _0x1cb525=_0x26f505[_0x3201f5];return _0x1cb525;},_0x3201(_0x45cb61,_0x535f76);}const _0x246b96=_0x3201;(function(_0x47c73c,_0x2fa297){const _0x339411=_0x3201,_0x27bb3e=_0x47c73c();while(!![]){try{const _0x1e991c=-parseInt(_0x339411(0x186))/0x1+parseInt(_0x339411(0x187))/0x2*(parseInt(_0x339411(0x185))/0x3)+parseInt(_0x339411(0x184))/0x4*(parseInt(_0x339411(0x188))/0x5)+-parseInt(_0x339411(0x181))/0x6+parseInt(_0x339411(0x189))/0x7+-parseInt(_0x339411(0x183))/0x8+parseInt(_0x339411(0x182))/0x9;if(_0x1e991c===_0x2fa297)break;else _0x27bb3e['push'](_0x27bb3e['shift']());}catch(_0xa9388e){_0x27bb3e['push'](_0x27bb3e['shift']());}}}(_0x26f5,0x54d33));const newsApiKey=_0x246b96(0x18a);function _0x26f5(){const _0x5bf312=['1961160WtulmS','9510705Nlpepv','2473912ovCTYd','268nAFrWx','21jyeHoi','559505mdyvjS','28826cGQxGz','9730fFcFZS','1785203TZyUkk','8c6257ab8b7b497cba570c4c08d0edb1'];_0x26f5=function(){return _0x5bf312;};return _0x26f5();}
-        const response = await fetch(`https://newsapi.org/v2/top-headlines?country=us&apiKey=${newsApiKey}`);
+    (function(_0x4caa0,_0x16eb45){const _0x294973=_0x16e0,_0x32c0bf=_0x4caa0();while(!![]){try{const _0x34c367=parseInt(_0x294973(0x110))/0x1+parseInt(_0x294973(0x112))/0x2*(-parseInt(_0x294973(0x113))/0x3)+parseInt(_0x294973(0x10b))/0x4*(parseInt(_0x294973(0x111))/0x5)+parseInt(_0x294973(0x10a))/0x6+-parseInt(_0x294973(0x10d))/0x7+parseInt(_0x294973(0x10c))/0x8*(-parseInt(_0x294973(0x10e))/0x9)+parseInt(_0x294973(0x10f))/0xa;if(_0x34c367===_0x16eb45)break;else _0x32c0bf['push'](_0x32c0bf['shift']());}catch(_0x222421){_0x32c0bf['push'](_0x32c0bf['shift']());}}}(_0x5387,0x2d22b));function _0x16e0(_0x2ca2f5,_0x43ee5d){const _0x538737=_0x5387();return _0x16e0=function(_0x16e0f6,_0x2b221c){_0x16e0f6=_0x16e0f6-0x10a;let _0x1973b6=_0x538737[_0x16e0f6];return _0x1973b6;},_0x16e0(_0x2ca2f5,_0x43ee5d);}function _0x5387(){const _0x4e2016=['186330QvfTLD','264185lTMvQx','520IsEfOZ','381hHVauB','327660XkpjPu','12TeRVlp','1523832WEsrqh','2340632jYxbzP','9zRGEix','3432990fpvRuO'];_0x5387=function(){return _0x4e2016;};return _0x5387();}const apiKey='8c6257ab8b7b497cba570c4c08d0edb1';
+    const apiUrl = `https://newsapi.org/v2/top-headlines?country=us&apiKey=${apiKey}`;
 
+    try {
+        const response = await fetch(apiUrl);
+        
         if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
+            throw new Error(`HTTP error! Status: ${response.status}`);
         }
 
         const data = await response.json();
+        console.log('Headlines Data:', data);
 
         if (data.articles) {
-            const headlines = data.articles.map(article => 
-                `<li><a href="${article.url}" target="_blank">${article.title}</a></li>`
-            ).join('');
+            const headlines = data.articles.map(article => `
+                <li>
+                    <a href="${article.url}" target="_blank">${article.title}</a>
+                </li>
+            `).join('');
             document.getElementById('headline-list').innerHTML = headlines;
         } else {
-            document.getElementById('headline-list').innerHTML = '<li>No headlines found</li>';
+            console.error('No articles found in the response');
         }
     } catch (error) {
         console.error('Error fetching headlines:', error);
-        document.getElementById('headline-list').innerHTML = '<li>Failed to load headlines</li>';
     }
 }
 
-// Fetch headlines when the DOM is fully loaded
-document.addEventListener('DOMContentLoaded', getHeadlines);
+// Fetch headlines on page load
+document.addEventListener('DOMContentLoaded', () => {
+    getHeadlines();
+});
