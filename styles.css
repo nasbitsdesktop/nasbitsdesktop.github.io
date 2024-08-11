@@ -43,7 +43,7 @@ body::before {
     top: 10px;
     right: 10px;
     background: rgba(0, 0, 0, 0.7); /* Darker and more translucent background */
-    padding: 20px;
+    padding: 15px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Slightly darker shadow for better visibility */
     text-align: center;
@@ -83,6 +83,7 @@ body::before {
     color: #eee; /* Matching color for consistency */
     margin-top: 10px; /* Space between the location and clock */
 }
+
 #buttons {
     position: fixed;
     bottom: 20px;
@@ -90,6 +91,7 @@ body::before {
     display: flex;
     gap: 10px; /* Space between buttons */
     z-index: 1; /* Ensure they appear above the background */
+    flex-wrap: wrap; /* Wrap buttons on smaller screens */
 }
 
 button {
@@ -106,6 +108,7 @@ button {
 button:hover {
     background-color: #777; /* Darker background on hover */
 }
+
 #social-media-tiles,
 #streaming-tiles {
     position: fixed;
@@ -115,6 +118,8 @@ button:hover {
     display: flex;
     gap: 15px; /* Space between tiles */
     z-index: 1; /* Ensure they appear above the background */
+    flex-wrap: wrap; /* Wrap tiles on smaller screens */
+    justify-content: center; /* Center tiles */
 }
 
 .tile {
@@ -140,6 +145,7 @@ button:hover {
     opacity: 0.9;
     transform: scale(1.1);
 }
+
 /* Headlines Box Styles */
 .headlines-box {
     position: absolute;
@@ -176,4 +182,47 @@ button:hover {
 
 .headlines-box a:hover {
     text-decoration: underline;
+}
+
+/* Mobile-specific styles */
+@media screen and (max-width: 768px) {
+    #weather-info {
+        width: 90%; /* Make weather box full width */
+        right: 5%;
+        left: 5%;
+        padding: 10px;
+    }
+
+    #buttons {
+        bottom: 10px; /* Move buttons up a bit */
+        left: 10px; /* Align to the screen edge */
+        width: calc(100% - 20px); /* Full width with padding */
+        justify-content: center; /* Center buttons */
+    }
+
+    button {
+        padding: 8px 12px; /* Smaller padding */
+        font-size: 12px; /* Slightly smaller text */
+    }
+
+    #social-media-tiles,
+    #streaming-tiles {
+        bottom: 15%; /* Adjust for smaller screens */
+        gap: 10px; /* Smaller gap between tiles */
+    }
+
+    .tile {
+        width: 50px;
+        height: 50px;
+    }
+
+    .tile img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .headlines-box {
+        width: 90%; /* Make headlines box full width */
+        left: 5%;
+    }
 }
