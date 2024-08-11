@@ -1,5 +1,16 @@
-/* Global styles remain the same */
+/* Global Styles (For Both Desktop and Mobile) */
 
+/* Fade-in effect */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Body Styles */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -13,11 +24,26 @@ body {
     animation: fadeIn 3s ease-in-out;
 }
 
+/* Background Image */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://i.imgur.com/FG4QUMd.jpeg') no-repeat center center fixed;
+    background-size: cover;
+    opacity: 1;
+    animation: fadeIn 3s ease-in-out;
+    z-index: -1;
+}
+
 /* Weather Info Box */
 #weather-info {
     position: fixed;
-    top: 10px;
-    right: 10px;
+    top: 20px;
+    right: 20px;
     background: rgba(0, 0, 0, 0.7);
     padding: 20px;
     border-radius: 10px;
@@ -30,6 +56,81 @@ body {
     z-index: 1;
 }
 
+/* Social Media & Streaming Tiles */
+#social-media-tiles,
+#streaming-tiles {
+    position: fixed;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 15px;
+    z-index: 1;
+}
+
+.tile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 10px;
+    text-decoration: none;
+    transition: opacity 0.3s, transform 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.tile img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+.tile:hover {
+    opacity: 0.9;
+    transform: scale(1.1);
+}
+
+/* Headlines Box */
+.headlines-box {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    border-radius: 10px;
+    padding: 10px;
+    width: 300px;
+    z-index: 2;
+}
+
+.headlines-box h2 {
+    margin: 0;
+    font-size: 18px;
+    border-bottom: 1px solid #fff;
+    padding-bottom: 5px;
+}
+
+.headlines-box ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.headlines-box li {
+    margin-bottom: 10px;
+}
+
+.headlines-box a {
+    color: #fff;
+    text-decoration: none;
+}
+
+headlines-box a:hover {
+    text-decoration: underline;
+}
+
 /* Buttons */
 #buttons {
     position: fixed;
@@ -40,33 +141,22 @@ body {
     z-index: 1;
 }
 
-/* Social Media & Streaming Tiles */
-#social-media-tiles,
-#streaming-tiles {
-    position: fixed;
-    bottom: 10%;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    z-index: 1;
+button {
+    background-color: #555;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
 }
 
-/* Headlines Box */
-.headlines-box {
-    position: fixed;
-    top: 10px;
-    left: 10px;
-    background: rgba(0, 0, 0, 0.7);
-    color: white;
-    border-radius: 10px;
-    padding: 10px;
-    width: 280px;
-    z-index: 2;
+button:hover {
+    background-color: #777;
 }
 
-/* Mobile-specific styles */
+/* Mobile-Specific Styles (Applies Only When Screen is Smaller than 768px) */
 @media screen and (max-width: 768px) {
     #weather-info {
         width: 180px;
