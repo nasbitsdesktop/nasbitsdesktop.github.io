@@ -1,14 +1,5 @@
-/* Keyframes for fade-in effect */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
+/* Global styles remain the same */
 
-/* Apply fade-in effect to the body */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -22,26 +13,11 @@ body {
     animation: fadeIn 3s ease-in-out;
 }
 
-/* Pseudo-element for background fade-in */
-body::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('https://i.imgur.com/FG4QUMd.jpeg') no-repeat center center fixed;
-    background-size: cover;
-    opacity: 1;
-    animation: fadeIn 3s ease-in-out;
-    z-index: -1;
-}
-
 /* Weather Info Box */
 #weather-info {
     position: fixed;
-    top: 20px;
-    right: 20px;
+    top: 10px;
+    right: 10px;
     background: rgba(0, 0, 0, 0.7);
     padding: 20px;
     border-radius: 10px;
@@ -54,32 +30,6 @@ body::before {
     z-index: 1;
 }
 
-/* Weather Info Text */
-#weather-icon {
-    width: 50px;
-    height: 50px;
-    background-size: cover;
-    margin-bottom: 10px;
-}
-
-#temperature {
-    font-size: 24px;
-    font-weight: bold;
-    color: #fff;
-}
-
-#description {
-    font-size: 16px;
-    color: #ddd;
-}
-
-#location,
-#clock {
-    font-size: 14px;
-    color: #eee;
-    margin-top: 10px;
-}
-
 /* Buttons */
 #buttons {
     position: fixed;
@@ -90,131 +40,53 @@ body::before {
     z-index: 1;
 }
 
-button {
-    background-color: #555;
-    color: #fff;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 14px;
-    transition: background-color 0.3s;
-}
-
-button:hover {
-    background-color: #777;
-}
-
 /* Social Media & Streaming Tiles */
 #social-media-tiles,
 #streaming-tiles {
     position: fixed;
-    bottom: 20%;
+    bottom: 10%;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
-    gap: 15px;
+    flex-wrap: wrap;
+    gap: 10px;
     z-index: 1;
-}
-
-.tile {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 60px;
-    height: 60px;
-    background-color: rgba(255, 255, 255, 0.7);
-    border-radius: 10px;
-    text-decoration: none;
-    transition: opacity 0.3s, transform 0.3s;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.tile img {
-    width: 40px;
-    height: 40px;
-    object-fit: contain;
-}
-
-.tile:hover {
-    opacity: 0.9;
-    transform: scale(1.1);
 }
 
 /* Headlines Box */
 .headlines-box {
     position: fixed;
-    top: 20px;
-    left: 20px;
+    top: 10px;
+    left: 10px;
     background: rgba(0, 0, 0, 0.7);
     color: white;
     border-radius: 10px;
     padding: 10px;
-    width: 300px;
+    width: 280px;
     z-index: 2;
-}
-
-.headlines-box h2 {
-    margin: 0;
-    font-size: 18px;
-    border-bottom: 1px solid #fff;
-    padding-bottom: 5px;
-}
-
-.headlines-box ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-}
-
-.headlines-box li {
-    margin-bottom: 10px;
-}
-
-.headlines-box a {
-    color: #fff;
-    text-decoration: none;
-}
-
-headlines-box a:hover {
-    text-decoration: underline;
 }
 
 /* Mobile-specific styles */
 @media screen and (max-width: 768px) {
     #weather-info {
-        width: 150px;
-        padding: 15px;
-    }
-
-    #weather-icon {
-        width: 40px;
-        height: 40px;
-    }
-
-    #temperature {
-        font-size: 20px;
-    }
-
-    #description {
-        font-size: 14px;
-    }
-
-    #location,
-    #clock {
-        font-size: 12px;
+        width: 180px;
+        padding: 10px;
+        top: 5px;
+        right: 5px;
     }
 
     #buttons {
-        padding: 5px 10px;
-        font-size: 12px;
-        gap: 8px;
+        flex-direction: column;
+        bottom: 50px;
+        left: 10px;
+        gap: 5px;
     }
 
     #social-media-tiles,
     #streaming-tiles {
-        bottom: 10%;
-        gap: 10px;
+        flex-direction: column;
+        bottom: 80px;
+        gap: 5px;
     }
 
     .tile {
@@ -228,15 +100,9 @@ headlines-box a:hover {
     }
 
     .headlines-box {
-        width: 250px;
+        width: 240px;
         padding: 8px;
-    }
-
-    .headlines-box h2 {
-        font-size: 16px;
-    }
-
-    .headlines-box li {
-        margin-bottom: 8px;
+        top: 5px;
+        left: 5px;
     }
 }
