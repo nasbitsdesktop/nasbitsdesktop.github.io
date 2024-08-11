@@ -1,6 +1,4 @@
-/* Global Styles (For Both Desktop and Mobile) */
-
-/* Fade-in effect */
+/* Keyframes for fade-in effect */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -10,7 +8,7 @@
     }
 }
 
-/* Body Styles */
+/* Apply fade-in effect to the body */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -18,13 +16,13 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    position: relative;
-    overflow-x: hidden;
-    animation: fadeIn 3s ease-in-out;
+    height: 100vh;
+    position: relative; /* Allows absolute positioning inside */
+    overflow: hidden; /* Prevents scrollbars caused by pseudo-element */
+    animation: fadeIn 3s ease-in-out; /* Apply fade-in effect to the body */
 }
 
-/* Background Image */
+/* Pseudo-element for background fade-in */
 body::before {
     content: '';
     position: absolute;
@@ -34,38 +32,89 @@ body::before {
     height: 100%;
     background: url('https://i.imgur.com/FG4QUMd.jpeg') no-repeat center center fixed;
     background-size: cover;
-    opacity: 1;
-    animation: fadeIn 3s ease-in-out;
-    z-index: -1;
+    opacity: 1; /* Ensure background is fully visible */
+    animation: fadeIn 3s ease-in-out; /* Apply fade-in effect */
+    z-index: -1; /* Place behind the content */
 }
 
-/* Weather Info Box */
+/* Ensure the weather info box also fades in */
 #weather-info {
     position: fixed;
-    top: 20px;
-    right: 20px;
-    background: rgba(0, 0, 0, 0.7);
+    top: 10px;
+    right: 10px;
+    background: rgba(0, 0, 0, 0.7); /* Darker and more translucent background */
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Slightly darker shadow for better visibility */
     text-align: center;
-    width: 200px;
-    opacity: 0;
-    animation: fadeIn 3s ease-in-out forwards;
-    animation-delay: 1s;
-    z-index: 1;
+    width: 200px; /* Fixed width for better alignment */
+    opacity: 0; /* Start with hidden visibility */
+    animation: fadeIn 3s ease-in-out forwards; /* Apply fade-in effect to the weather info box */
+    animation-delay: 1s; /* Delay the weather info box fade-in to start after 1 second */
+    z-index: 1; /* Ensure it’s above the background */
 }
 
-/* Social Media & Streaming Tiles */
+#weather-icon {
+    width: 50px;
+    height: 50px;
+    background-size: cover;
+    margin-bottom: 10px;
+}
+
+#temperature {
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff; /* White text for contrast */
+}
+
+#description {
+    font-size: 16px;
+    color: #ddd; /* Lighter text for better readability */
+}
+
+#location {
+    font-size: 14px;
+    color: #eee; /* Even lighter text for the location */
+    margin-top: 10px; /* Space between the description and location */
+}
+
+#clock {
+    font-size: 14px;
+    color: #eee; /* Matching color for consistency */
+    margin-top: 10px; /* Space between the location and clock */
+}
+#buttons {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    display: flex;
+    gap: 10px; /* Space between buttons */
+    z-index: 1; /* Ensure they appear above the background */
+}
+
+button {
+    background-color: #555; /* Button background color */
+    color: #fff; /* Text color */
+    border: none; /* Remove border */
+    padding: 10px 15px; /* Button padding */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 14px; /* Font size */
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+button:hover {
+    background-color: #777; /* Darker background on hover */
+}
 #social-media-tiles,
 #streaming-tiles {
     position: fixed;
-    bottom: 10%;
+    bottom: 20%;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
-    gap: 15px;
-    z-index: 1;
+    gap: 15px; /* Space between tiles */
+    z-index: 1; /* Ensure they appear above the background */
 }
 
 .tile {
@@ -74,7 +123,7 @@ body::before {
     align-items: center;
     width: 60px;
     height: 60px;
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: rgba(255, 255, 255, 0.7); /* White with transparency */
     border-radius: 10px;
     text-decoration: none;
     transition: opacity 0.3s, transform 0.3s;
@@ -82,27 +131,25 @@ body::before {
 }
 
 .tile img {
-    width: 40px;
+    width: 40px; /* Adjust size of the logos */
     height: 40px;
-    object-fit: contain;
+    object-fit: contain; /* Ensure logos fit inside the tile */
 }
 
 .tile:hover {
     opacity: 0.9;
     transform: scale(1.1);
 }
-
-/* Headlines Box */
+/* Headlines Box Styles */
 .headlines-box {
-    position: fixed;
+    position: absolute;
     top: 20px;
     left: 20px;
     background: rgba(0, 0, 0, 0.7);
     color: white;
     border-radius: 10px;
     padding: 10px;
-    width: 300px;
-    z-index: 2;
+    width: 300px; /* Adjust width as needed */
 }
 
 .headlines-box h2 {
@@ -127,79 +174,6 @@ body::before {
     text-decoration: none;
 }
 
-headlines-box a:hover {
+.headlines-box a:hover {
     text-decoration: underline;
-}
-
-/* Buttons */
-#buttons {
-    position: fixed;
-    bottom: 20px;
-    left: 20px;
-    display: flex;
-    gap: 10px;
-    z-index: 1;
-}
-
-button {
-    background-color: #555;
-    color: #fff;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 14px;
-    transition: background-color 0.3s;
-}
-
-button:hover {
-    background-color: #777;
-}
-
-/* Mobile-Specific Styles (Applies Only When Screen is Smaller than 768px) */
-@media screen and (max-width: 768px) {
-    /* Narrower Headlines Box */
-    .headlines-box {
-        width: 200px; /* Adjusted to be more narrow */
-        padding: 8px;
-        top: 5px;
-        left: 5px;
-    }
-
-    /* Weather Info Box */
-    #weather-info {
-        width: 180px;
-        padding: 10px;
-        top: 5px;
-        right: 5px;
-        text-align: left; /* Align text to the left for better readability */
-        font-size: 14px; /* Smaller font size for better fit */
-    }
-
-    /* Buttons */
-    #buttons {
-        flex-direction: column;
-        bottom: 50px;
-        left: 10px;
-        gap: 5px;
-    }
-
-    /* Social Media & Streaming Tiles */
-    #social-media-tiles,
-    #streaming-tiles {
-        flex-direction: column;
-        bottom: 80px;
-        gap: 5px;
-    }
-
-    /* Tile Adjustments */
-    .tile {
-        width: 50px;
-        height: 50px;
-    }
-
-    .tile img {
-        width: 30px;
-        height: 30px;
-    }
 }
