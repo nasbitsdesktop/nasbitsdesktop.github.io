@@ -158,13 +158,25 @@ button:hover {
 
 /* Mobile-Specific Styles (Applies Only When Screen is Smaller than 768px) */
 @media screen and (max-width: 768px) {
+    /* Narrower Headlines Box */
+    .headlines-box {
+        width: 200px; /* Adjusted to be more narrow */
+        padding: 8px;
+        top: 5px;
+        left: 5px;
+    }
+
+    /* Weather Info Box */
     #weather-info {
         width: 180px;
         padding: 10px;
         top: 5px;
         right: 5px;
+        text-align: left; /* Align text to the left for better readability */
+        font-size: 14px; /* Smaller font size for better fit */
     }
 
+    /* Buttons */
     #buttons {
         flex-direction: column;
         bottom: 50px;
@@ -172,6 +184,7 @@ button:hover {
         gap: 5px;
     }
 
+    /* Social Media & Streaming Tiles */
     #social-media-tiles,
     #streaming-tiles {
         flex-direction: column;
@@ -179,6 +192,7 @@ button:hover {
         gap: 5px;
     }
 
+    /* Tile Adjustments */
     .tile {
         width: 50px;
         height: 50px;
@@ -187,12 +201,5 @@ button:hover {
     .tile img {
         width: 30px;
         height: 30px;
-    }
-
-    .headlines-box {
-        width: 240px;
-        padding: 8px;
-        top: 5px;
-        left: 5px;
     }
 }
